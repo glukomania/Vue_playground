@@ -1,17 +1,23 @@
 <template>
-  <h1>
-    {{info}}
-  </h1>
-  <p>Some text</p>
+  <input type="text" @input="insertData($event.target.value)" placeholder="Name">
+  <input type="email" placeholder="Name">
+  <input type="password" placeholder="Name">
+  <p>{{ userName }}</p>
 
-  <button type="button" @click="this.info = 'Clicked'">Send</button>
 </template>
 
 <script>
   export default {
     data() {
       return {
-        info: 'Title'
+        userName: '',
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      insertData(val) {
+        this.userName = val
       }
     }
   }
