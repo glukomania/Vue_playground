@@ -2,7 +2,7 @@
   <input type="text" v-model="userName" placeholder="Name">
   <input type="email" v-model="userEmail" placeholder="Email">
   <input type="password" v-model="userPassword" placeholder="Password">
-
+  <p className="error">{{ error }}</p>
   <button @click="sendData()">Send</button>
 
   <p>{{ users }}</p>
@@ -16,11 +16,31 @@
         users: [],
         userName: '',
         userEmail: '',
-        userPassword: ''
+        userPassword: '',
+        error: ''
       }
     },
     methods: {
       sendData() {
+        console.log('Send is pressed')
+
+        if(this.userName.length === 0){
+          console.log('no name')
+          this.error = 'No name entered'
+          return
+        }
+
+        if(this.userEmail.length === 0){
+          this.error = 'No email entered'
+          return
+        }
+
+        if(this.userPassword.length === 0){
+          this.error = 'No password entered'
+          return
+        }
+
+        this.error = ''
         this.users.push({
           name: this.userName,
           email: this.userEmail,
