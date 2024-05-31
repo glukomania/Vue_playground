@@ -1,8 +1,10 @@
 <template>
-  <input type="text" @input="insertData($event.target.value)" placeholder="Name">
-  <input type="email" placeholder="Name">
-  <input type="password" placeholder="Name">
+  <input type="text" v-model="userName" placeholder="Name">
+  <input type="email" v-model="userEmail" placeholder="Email">
+  <input type="password" v-model="userPassword" placeholder="Password">
   <p>{{ userName }}</p>
+  <p>{{ userEmail }}</p>
+  <p>{{ userPassword }}</p>
 
 </template>
 
@@ -11,14 +13,11 @@
     data() {
       return {
         userName: '',
-        email: '',
-        password: ''
+        userEmail: '',
+        userPassword: ''
       }
     },
     methods: {
-      insertData(val) {
-        this.userName = val
-      }
     }
   }
 </script>
